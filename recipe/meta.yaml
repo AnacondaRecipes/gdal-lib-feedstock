@@ -58,7 +58,7 @@ requirements:
     - openjpeg
     - openssl
     - pcre
-    - poppler # [not win]
+    - poppler              [not win]
     - postgresql
     - proj
     - sqlite
