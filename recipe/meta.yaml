@@ -22,6 +22,7 @@ build:
   number: 0
   ignore_run_exports:
     - postgresql
+    - icu                  [osx]
   # package is not supported on linux-s390x - many dependencies missing
   skip: True   [(win and vc<14) or s390x]
 
@@ -79,6 +80,7 @@ requirements:
     - json-c               [unix]
     - libdap4              [unix]
     - libnetcdf 4.8
+    - libiconv             [osx]
     - libpq
     - libspatialite
     - libuuid              [linux]
@@ -89,7 +91,7 @@ requirements:
     - tiledb
     - xz                   [not win or vc>=14]
     - m2w64-xz             [win]
-    - zlib
+    - zlib                 [linux]
     - zstd
 
 test:
