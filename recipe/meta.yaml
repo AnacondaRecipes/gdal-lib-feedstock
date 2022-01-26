@@ -23,6 +23,7 @@ build:
   ignore_run_exports:
     - postgresql
     - icu                  [osx]
+    - zlib                 [osx]
   # package is not supported on linux-s390x - many dependencies missing
   skip: True   [(win and vc<14) or s390x]
 
