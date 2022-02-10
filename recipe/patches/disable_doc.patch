@@ -1,0 +1,17 @@
+diff --git a/makefile.vc b/makefile.vc
+index 2cf4bfd..f2c2ce2 100644
+--- a/makefile.vc
++++ b/makefile.vc
+@@ -207,9 +207,9 @@ dll:	$(GDAL_DLL)
+ 
+ # build using cygwin
+ docs:
+-!IFDEF HTMLDIR
+-	make PYTHONHOME= -C doc html
+-!ENDIF
++#!IFDEF HTMLDIR
++#	make PYTHONHOME= -C doc html
++#!ENDIF
+ 
+ bindings:
+ 	-for %d in ( $(BINDINGS) ) do \
