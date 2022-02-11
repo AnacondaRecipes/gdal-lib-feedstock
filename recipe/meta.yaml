@@ -114,7 +114,6 @@ test:
     - gdalwarp --version
     - gdalinfo --formats
     - gdalinfo http://thredds.nersc.no/thredds/dodsC/greenpath/Model/topaz  [unix]
-    - echo "libgdal test: test/commands OK"
 
 about:
   home: http://www.gdal.org
