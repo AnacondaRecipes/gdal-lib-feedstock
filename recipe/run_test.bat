@@ -18,4 +18,4 @@ if errorlevel 1 exit 1
 ogrinfo sites.shp
 if errorlevel 1 exit 1
 
-echo libgdal test: run_test.bat OK
+echo "libgdal test: run_test.bat OK"
