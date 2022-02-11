@@ -17,3 +17,5 @@ if errorlevel 1 exit 1
 :: Check shapefile read.
 ogrinfo sites.shp
 if errorlevel 1 exit 1
+
+echo libgdal test: run_test.bat OK
