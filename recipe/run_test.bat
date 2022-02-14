@@ -8,14 +8,13 @@ REM if errorlevel 1 exit 1
 
 :: Test ISIS3/USGS driver `SetNoDataValue()` issue.
 gdalinfo cropped.cub
-if errorlevel 1 exit 1
+IF %ERRORLEVEL% NEQ 0 exit /B 1
 
 :: From @akorosov. See https://github.com/conda-forge/gdal-feedstock/issues/83
 gdalinfo /vsizip/stere.zip/stere.tif
-if errorlevel 1 exit 1
-
+IF %ERRORLEVEL% NEQ 0 exit /B 1
 :: Check shapefile read.
 ogrinfo sites.shp
-if errorlevel 1 exit 1
+IF %ERRORLEVEL% NEQ 0 exit /B 1
 
 echo "libgdal test: run_test.bat OK"
