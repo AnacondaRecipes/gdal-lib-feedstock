@@ -13,17 +13,23 @@ source:
   patches:
     # BUILT_AS_DYNAMIC_LIB.
     - patches/windowshdf5.patch     # [win]
-    # Use multiple cores on Windows.
-    - patches/multiprocessor.patch  # [win]
     # disable 12 bit jpeg on Windows as we aren't using internal jpeg
     - patches/disable_jpeg12.patch  # [win]
+    # disable doc html building
+    - patches/disable_doc.patch     # [win]
 
 build:
   number: 0
   ignore_run_exports:
     - postgresql
-    - icu                  [osx]
-    - zlib                 [osx]
+    - icu                  [osx or win]
+    - zlib                 [osx or win]
+    - pcre                 [win]
+    - lz4-c                [win]
+    - libwebp-base         [win]
+    - openssl              [win]
+    - libxml2              [win]
+    - libkml               [win]
   # package is not supported on linux-s390x - many dependencies missing
   skip: True   [(win and vc<14) or s390x]
 
@@ -72,7 +78,7 @@ requirements:
     - sqlite
     - tiledb
     - xerces-c
-    - xz                   [not win or vc>=14]
+    - xz                   [not win]
     - zlib
 
   run:
@@ -82,7 +88,7 @@ requirements:
     - json-c               [unix]
     - libdap4              [unix]
     - libnetcdf 4.8
-    - libiconv             [osx]
+    - libiconv             [osx or win]
     - libpq
     - libspatialite
     - libuuid              [linux]
@@ -91,10 +97,10 @@ requirements:
     - poppler              [unix]
     - proj
     - tiledb
-    - xz                   [not win or vc>=14]
+    - xz                   [not win]
     - m2w64-xz             [win]
     - zlib                 [linux]
-    - zstd
+    - zstd                 [not win]
 
 test:
   files:

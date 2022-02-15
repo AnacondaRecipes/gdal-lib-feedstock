@@ -33,3 +33,6 @@ if errorlevel 1 exit 1
 
 copy %RECIPE_DIR%\scripts\deactivate.sh %DEACTIVATE_DIR%\gdal-deactivate.sh
 if errorlevel 1 exit 1
+
+del %LIBRARY_PREFIX%\COPYING
+del %LIBRARY_PREFIX%\RELEASE.txt
