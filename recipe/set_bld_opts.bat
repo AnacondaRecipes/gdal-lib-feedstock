@@ -79,7 +79,13 @@ set BLD_OPTS=%WIN64% ^
     XERCES_LIB=%LIBRARY_LIB%\xerces-c_3.lib ^
     GEOTIFF_INC="-I%LIBRARY_INC%" ^
     GEOTIFF_LIB=%LIBRARY_LIB%\geotiff_i.lib ^
+    WEBP_ENABLED=YES ^
+    WEBP_CFLAGS="-I%LIBRARY_INC%" ^
+    WEBP_LIBS="%LIBARY_LIB%\libwebp.lib" ^
     LIBICONV_INCLUDE="-I%LIBRARY_INC% -DICONV_CONST= " ^
-    LIBICONV_LIBRARY="%LIBRARY_LIB%\iconv.lib"
+    LIBICONV_LIBRARY="%LIBRARY_LIB%\iconv.lib" ^
+    LIBKML_DIR="%LIBRARY_PREFIX%" ^
+    LIBKML_INCLUDE="-I%LIBRARY_INC%" ^
+    LIBKML_LIBS="%LIBRARY_LIB%\kmlbase.lib %LIBRARY_LIB%\kmlconvenience.lib %LIBRARY_LIB%\kmldom.lib %LIBRARY_LIB%\kmlengine.lib %LIBRARY_LIB%\kmlregionator.lib %LIBRARY_LIB%\kmlxsd.lib %LIBRARY_LIB%\minizip.lib %LIBRARY_LIB%\uriparser.lib"
 
 endlocal && set BLD_OPTS=%BLD_OPTS%
