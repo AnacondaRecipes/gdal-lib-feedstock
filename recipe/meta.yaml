@@ -19,7 +19,8 @@ source:
     - patches/disable_doc.patch     # [win]
 
 build:
-  number: 0
+  number: 0                [not win]
+  number: 1                [win]
   ignore_run_exports:
     - postgresql
     - icu                  [osx or win]
