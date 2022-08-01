@@ -19,7 +19,7 @@ source:
     - patches/disable_doc.patch     # [win]
 
 build:
-  number: 1
+  number: 2
   run_exports:
     # Soname changes between minor versions.
     - {{ pin_subpackage('libgdal', max_pin='x.x') }}
@@ -123,9 +123,9 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.TXT
-  summary: |
-    GDAL is a translator library for raster and vector geospatial data
-    formats that is released under an X/MIT style Open Source license by
-    the Open Source Geospatial Foundation.
-  dev_url: https://gdal.org/api/index.html
+  summary: The Geospatial Data Abstraction Library (GDAL)
+  description: |
+    GDAL is a translator library for raster and vector geospatial data formats that is released under an
+    X/MIT style Open Source license by the Open Source Geospatial Foundation.
+  dev_url: https://github.com/OSGeo/gdal
   doc_url: https://gdal.org/tutorials/index.html
