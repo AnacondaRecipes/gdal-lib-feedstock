@@ -19,32 +19,32 @@ source:
     - patches/disable_doc.patch     # [win]
 
 build:
-  number: 1
+  number: 2
   run_exports:
     # Soname changes between minor versions.
     - {{ pin_subpackage('libgdal', max_pin='x.x') }}
   ignore_run_exports:
     - postgresql
-    - icu                  [osx or win]
-    - zlib                 [osx or win]
-    - pcre                 [win]
-    - lz4-c                [win]
-    - libwebp-base         [win]
-    - openssl              [win]
-    - libxml2              [win]
-    - libkml               [win]
+    - icu                  # [osx or win]
+    - zlib                 # [osx or win]
+    - pcre                 # [win]
+    - lz4-c                # [win]
+    - libwebp-base         # [win]
+    - openssl              # [win]
+    - libxml2              # [win]
+    - libkml               # [win]
   # package is not supported on linux-s390x - many dependencies missing
-  skip: True   [(win and vc<14) or s390x]
+  skip: True   # [(win and vc<14) or s390x]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - pkg-config >=0.21    [unix]
-    - m2-patch             [win]
-    - cmake                [win]
-    - make                 [unix]
-    - libtool              [unix]
+    - pkg-config >=0.21    # [unix]
+    - m2-patch             # [win]
+    - cmake                # [win]
+    - make                 # [unix]
+    - libtool              # [unix]
 
   host:
     - cfitsio
@@ -53,57 +53,58 @@ requirements:
     - freexl
     - geos
     - geotiff
-    - giflib               [unix]
+    - giflib               # [unix]
     - hdf4
     - hdf5
     - icu
     - jpeg
-    - json-c               [unix]
+    - json-c               # [unix]
     - kealib
     - libcurl
-    - libdap4              [unix]
+    - libdap4              # [unix]
     - libkml
     - libnetcdf 4.8
     - libpng
     - libpq
     - libspatialite
     - libtiff
-    - libuuid              [linux]
+    - libuuid              # [linux]
     - libwebp-base
-    - libxml2
-    - m2w64-xz             [win]
+    # exclusions due to https://bugs.launchpad.net/lxml/+bug/1928795
+    - libxml2 !=2.9.11, !=2.9.12
+    - m2w64-xz             # [win]
     - openjpeg
     - openssl
     - pcre
-    - poppler              [not win]
+    - poppler              # [not win]
     - postgresql
     - proj
     - sqlite
     - tiledb
     - xerces-c
-    - xz                   [not win]
+    - xz                   # [not win]
     - zlib
 
   run:
     - cfitsio
     - geotiff
-    - giflib               [unix]
-    - json-c               [unix]
-    - libdap4              [unix]
+    - giflib               # [unix]
+    - json-c               # [unix]
+    - libdap4              # [unix]
     - libnetcdf 4.8
-    - libiconv             [osx or win]
+    - libiconv             # [osx or win]
     - libpq
     - libspatialite
-    - libuuid              [linux]
+    - libuuid              # [linux]
     - lz4-c
-    - m2w64-xz             [win]
-    - poppler              [unix]
+    - m2w64-xz             # [win]
+    - poppler              # [unix]
     - proj
     - tiledb
-    - xz                   [not win]
-    - m2w64-xz             [win]
-    - zlib                 [linux]
-    - zstd                 [not win]
+    - xz                   # [not win]
+    - m2w64-xz             # [win]
+    - zlib                 # [linux]
+    - zstd                 # [not win]
 
 test:
   files:
@@ -123,9 +124,9 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.TXT
-  summary: |
-    GDAL is a translator library for raster and vector geospatial data
-    formats that is released under an X/MIT style Open Source license by
-    the Open Source Geospatial Foundation.
-  dev_url: https://gdal.org/api/index.html
+  summary: The Geospatial Data Abstraction Library (GDAL)
+  description: |
+    GDAL is a translator library for raster and vector geospatial data formats that is released under an
+    X/MIT style Open Source license by the Open Source Geospatial Foundation.
+  dev_url: https://github.com/OSGeo/gdal
   doc_url: https://gdal.org/tutorials/index.html
