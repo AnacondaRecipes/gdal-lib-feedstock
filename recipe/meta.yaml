@@ -70,7 +70,8 @@ requirements:
     - libtiff
     - libuuid              # [linux]
     - libwebp-base
-    - libxml2
+    # exclusions due to https://bugs.launchpad.net/lxml/+bug/1928795
+    - libxml2 !=2.9.11, !=2.9.12
     - m2w64-xz             # [win]
     - openjpeg
     - openssl
